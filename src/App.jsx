@@ -24,12 +24,16 @@ export default function App() {
   return (
     <main className={`papel ${paso === 'sobre' ? 'sin-iglesia' : ''}`}>
       <div className="iglesia-fondo" aria-hidden="true"></div>
-      <audio ref={audioRef} src={c.cancionUrl} loop onEnded={() => setReproduciendo(false)} />
-      <button className={`control-musica ${reproduciendo ? 'sonando' : ''}`} onClick={alternarMusica} aria-label={reproduciendo ? 'Pausar canción' : 'Reproducir canción'}>
-        <span className="disco" aria-hidden="true">♫</span>
-        <span>{reproduciendo ? 'Pausar canción' : 'Reproducir canción'}</span>
-        <span className="play-icon" aria-hidden="true">{reproduciendo ? 'Ⅱ' : '▶'}</span>
-      </button>
+      {c.cancionUrl && (
+        <>
+          <audio ref={audioRef} src={c.cancionUrl} loop onEnded={() => setReproduciendo(false)} />
+          <button className={`control-musica ${reproduciendo ? 'sonando' : ''}`} onClick={alternarMusica} aria-label={reproduciendo ? 'Pausar canción' : 'Reproducir canción'}>
+            <span className="disco" aria-hidden="true">♫</span>
+            <span>{reproduciendo ? 'Pausar canción' : 'Reproducir canción'}</span>
+            <span className="play-icon" aria-hidden="true">{reproduciendo ? 'Ⅱ' : '▶'}</span>
+          </button>
+        </>
+      )}
       {paso === 'sobre' ? (
         <section className="sobre-inicial" key="sobre">
           <div className="sobre-carta" role="button" tabIndex="0" onClick={() => setPaso('portada')} onKeyDown={(event) => event.key === 'Enter' && setPaso('portada')}>

@@ -7,5 +7,5 @@ export const config = {
   lugar: 'Basílica Menor Nuestra Señora de la Asunción',
   ciudad: 'Sopetrán, Antioquia',
   mapsUrl: 'https://maps.app.goo.gl/TwYGi9qcQPdA2Yar6',
-  cancionUrl: '/bendicion.mp3',
+  cancionUrl: '',
 }
