@@ -1,39 +1,11 @@
-import { useRef, useState } from 'react'
+import { useState } from 'react'
 import { config as c } from './config.js'
 
 export default function App() {
   const [paso, setPaso] = useState('sobre')
-  const [reproduciendo, setReproduciendo] = useState(false)
-  const audioRef = useRef(null)
-
-  const alternarMusica = async () => {
-    if (!audioRef.current) return
-    if (reproduciendo) {
-      audioRef.current.pause()
-      setReproduciendo(false)
-      return
-    }
-    try {
-      await audioRef.current.play()
-      setReproduciendo(true)
-    } catch {
-      setReproduciendo(false)
-    }
-  }
-
   return (
     <main className={`papel ${paso === 'sobre' ? 'sin-iglesia' : ''}`}>
       <div className="iglesia-fondo" aria-hidden="true"></div>
-      {c.cancionUrl && (
-        <>
-          <audio ref={audioRef} src={c.cancionUrl} loop onEnded={() => setReproduciendo(false)} />
-          <button className={`control-musica ${reproduciendo ? 'sonando' : ''}`} onClick={alternarMusica} aria-label={reproduciendo ? 'Pausar canción' : 'Reproducir canción'}>
-            <span className="disco" aria-hidden="true">♫</span>
-            <span>{reproduciendo ? 'Pausar canción' : 'Reproducir canción'}</span>
-            <span className="play-icon" aria-hidden="true">{reproduciendo ? 'Ⅱ' : '▶'}</span>
-          </button>
-        </>
-      )}
       {paso === 'sobre' ? (
         <section className="sobre-inicial" key="sobre">
           <div className="sobre-carta" role="button" tabIndex="0" onClick={() => setPaso('portada')} onKeyDown={(event) => event.key === 'Enter' && setPaso('portada')}>
