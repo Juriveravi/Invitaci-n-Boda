@@ -43,10 +43,9 @@ export default function App() {
           <div className="ramita ramita-izquierda" aria-hidden="true">✦</div>
           <div className="sobre">
             <p className="eyebrow">Una historia que elegimos para siempre</p>
-            <p className="frase">“{c.frase}”</p>
             <div className="sello" aria-hidden="true">C <span>♥</span> A</div>
             <img className="foto" src="/pareja.png" alt="Retrato a lápiz de la pareja" />
-           
+
             <blockquote className="salmo">“Así que no son ya más dos, sino una sola carne; por tanto, lo que Dios juntó, no lo separe el hombre.”<cite>Mateo 19:6</cite></blockquote>
             <div className="anillos" aria-label="Dos anillos entrelazados" role="img">
               <span></span><span></span>
@@ -55,6 +54,7 @@ export default function App() {
               <span>Ver información</span>
               <ArrowRight className="icono-boton" aria-hidden="true" />
             </button>
+            <button className="volver" onClick={() => setPaso('sobre')}>Volver</button>
           </div>
           <div className="ramita ramita-derecha" aria-hidden="true">✦</div>
         </section>
