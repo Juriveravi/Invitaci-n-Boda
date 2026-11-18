@@ -70,6 +70,7 @@ export default function App() {
             <div className="dato"><dt><Clock3 className="icono" aria-hidden="true" /> Cuándo</dt><dd>{c.fecha}<br /><strong>{c.hora}</strong></dd></div>
             <div className="dato"><dt><MapPin className="icono" aria-hidden="true" /> Dónde</dt><dd>{c.lugar}<br /><strong>{c.ciudad}</strong></dd></div>
           </dl>
+          <p className="nota">Agradecemos de corazón que nos acompañen en este momento tan especial. La celebración concluirá al finalizar la Santa Eucaristía.</p>
           <section className="cuenta" aria-label="Cuenta regresiva para la boda">
             <p className="eyebrow">Faltan</p>
             <div className="contador">
@@ -82,6 +83,13 @@ export default function App() {
           <a className="boton" href={c.mapsUrl} target="_blank" rel="noopener noreferrer">
             <MapPin className="icono-boton" aria-hidden="true" /><span>Ver ubicación</span><ArrowUpRight className="icono-boton" aria-hidden="true" />
           </a>
+          <footer className="cierre">
+            <svg className="trazo" viewBox="0 0 200 8" aria-hidden="true">
+              <path d="M2 5 C40 1, 70 7, 100 4 S170 2, 198 5" fill="none" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" />
+            </svg>
+            <p>Gracias por ser parte de este momento tan especial.</p>
+            <p className="firma">Con cariño, los novios</p>
+          </footer>
           <button className="volver" onClick={() => setPaso('portada')}>Volver</button>
         </section>
       )}
